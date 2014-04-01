@@ -18,7 +18,7 @@ module MageRecord
         # only simple/virtual products will have custom attributes
         if %w{simple virtual}.include?(type_id)
           # get all custom product attributes specific to attribute set
-          attribs = set.downcase.gsub(/^.*\((\w*)(?: only)?\)/, "\\1").split(' + ') - ['brand']
+          attribs = set.downcase.gsub(/.*\((.+)\)/, "\\1").gsub(/ only/, '').split(' + ') - ['brand']
 
           attribs.each do |attr|
             @fname += " (#{send(attr)})"
