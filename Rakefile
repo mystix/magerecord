@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "magerecord"
   gem.homepage = "http://github.com/mystix/magerecord"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Simple ActiveRecord wrapper for Magento}
+  gem.description = %Q{A simple ActiveRecord wrapper for various Magento models}
   gem.email = "xerokill@gmail.com"
   gem.authors = ["Marc"]
   # dependencies defined in Gemfile

@@ -2,6 +2,9 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
+gem 'activerecord', '>= 4.0.4'
+gem 'mysql2', '>= 0.3.1'
+
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
