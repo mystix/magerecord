@@ -1,4 +1,4 @@
-# magerecord
+# MageRecord RubyGem
 
 ## Introduction
 Simple ActiveRecord wrapper for various Magento objects.
