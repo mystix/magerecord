@@ -1,7 +1,7 @@
-# magerecord
+# MageRecord RubyGem
 
 ## Introduction
-Simple ActiveRecord wrapper for various Magento objects.
+Simple ActiveRecord wrapper for various Magento models.
 
 ## Installation
 
@@ -46,21 +46,20 @@ order.billing_address
 order.shipping_address
 
 
-# get a product
-product = MageRecord::Product.last
-
-# get product name
-product.name
-
-# get list of EAV attributes for a MageRecord
-#
-# currently works with:
+# get EAV attributes for the following Magento models:
 # - MageRecord::Address
 # - MageRecord::Customer
 # - MageRecord::Product
 MageRecord::Address.eav_attributes
 MageRecord::Customer.eav_attributes
 MageRecord::Product.eav_attributes
+
+
+# get a product
+product = MageRecord::Product.last
+
+# get product name
+product.name
 
 # get custom product EAV attribute
 # (note: these should first be defined in Magento)
