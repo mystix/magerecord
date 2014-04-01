@@ -3,7 +3,7 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 gem 'activerecord', '>= 4.0.4'
-gem 'mysql2', '>= 0.3.1'
+gem 'mysql2', '>= 0.3.15'
 
 
 # Add dependencies to develop your gem here.

@@ -89,7 +89,7 @@ DEPENDENCIES
   activerecord (>= 4.0.4)
   bundler (~> 1.0)
   jeweler (~> 2.0.1)
-  mysql2 (>= 0.3.1)
+  mysql2 (>= 0.3.15)
   rdoc (~> 3.12)
   shoulda
   simplecov
