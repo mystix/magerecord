@@ -15,7 +15,13 @@ module MageRecord
 
     # call associated product's method
     def method_missing(meth, *args, &block)
-      super || (product && product.send(meth))
+      if product && product.respond_to?(meth)
+        product.send(meth)
+      else
+        # call superclass's method_missing method
+        # or risk breaking Ruby's method lookup
+        super
+      end
     end
 
 
