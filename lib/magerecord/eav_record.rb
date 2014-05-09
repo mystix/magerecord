@@ -1,6 +1,7 @@
 module MageRecord
   class EavRecord < ActiveRecord::Base
     self.abstract_class = true
+    self.primary_key = :entity_id
 
 
     # return the full list of EAV attributes available for this entity type
@@ -38,7 +39,7 @@ module MageRecord
 
 
     def respond_to?(meth, include_private = false)
-      (get_eav_records(meth).count > 0) || super
+      super || (get_eav_records(meth).count > 0)
     end
 
 
