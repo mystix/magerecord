@@ -24,11 +24,29 @@ module MageRecord
 
 
     def method_missing(meth, *args, &block)
+      eav = get_eav_records(meth)
+
+      if eav.count > 0
+        # return value of Magento EAV attribute if available
+        eav.first
+      else
+        # call superclass's method_missing method
+        # or risk breaking Ruby's method lookup
+        super
+      end
+    end
+
+
+
+
+    private
+
+    def get_eav_records(attrib_sym)
       conn = self.class.connection
       eav_prefix = self.class.eav_prefix
 
       # note: select_values returns just one value from a single db column
-      eav = conn.select_values <<-RAWSQL.strip_heredoc
+      conn.select_values <<-RAWSQL.strip_heredoc
         SELECT
           CASE ea.backend_type
             WHEN 'varchar'  THEN entity_varchar.value
@@ -61,18 +79,9 @@ module MageRecord
         LEFT JOIN #{eav_prefix}_entity_decimal  AS entity_decimal ON entity.entity_id = entity_decimal.entity_id AND ea.attribute_id = entity_decimal.attribute_id AND ea.backend_type = 'decimal'
         LEFT JOIN #{eav_prefix}_entity_datetime AS entity_datetime ON entity.entity_id = entity_datetime.entity_id AND ea.attribute_id = entity_datetime.attribute_id AND ea.backend_type = 'datetime'
 
-        WHERE ea.attribute_code = #{conn.quote(meth)}
+        WHERE ea.attribute_code = #{conn.quote(attrib_sym)}
           AND entity.entity_id = #{id}
       RAWSQL
-
-      if eav.count > 0
-        # return value of Magento EAV attribute if available
-        eav.first
-      else
-        # call superclass's method_missing method
-        # or risk breaking Ruby's method lookup
-        super
-      end
     end
   end
 end
