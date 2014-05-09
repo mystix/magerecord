@@ -37,6 +37,11 @@ module MageRecord
     end
 
 
+    def respond_to?(meth, include_private = false)
+      (get_eav_records(meth).count > 0) || super
+    end
+
+
 
 
     private
