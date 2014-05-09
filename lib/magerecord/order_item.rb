@@ -15,7 +15,12 @@ module MageRecord
 
     # call associated product's method
     def method_missing(meth, *args, &block)
-      product.nil? ? super : product.send(meth)
+      super || (product && product.send(meth))
+    end
+
+
+    def respond_to?(meth, include_private = false)
+      super || (product && product.respond_to?(meth))
     end
   end
 end
