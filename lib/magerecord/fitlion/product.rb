@@ -21,7 +21,7 @@ module MageRecord
           attribs = set.downcase.gsub(/.*\((.+)\)/, "\\1").gsub(/ only/, '').split(' + ') - ['brand']
 
           attribs.each do |attr|
-            @fname += " (#{send(attr)})"
+            @fname += " (#{send(attr.split(' ').join('_'))})"
           end
         end
       end
