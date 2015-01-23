@@ -3,7 +3,10 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 gem 'activerecord', '>= 4.0.4'
+gem 'mysql2', :platforms => :ruby
+
 gem 'activerecord-jdbc-adapter', :platforms => :jruby
+gem 'jdbc-mysql', :platforms => :jruby
 
 
 # Add dependencies to develop your gem here.
