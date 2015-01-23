@@ -20,7 +20,7 @@ $ gem install magerecord
 
 ## Basic Usage:
 ```
-require 'mysql2' # or relevant database adapter of your choice
+# require 'activerecord-jdbc-adapter' # if running jruby
 
 # IMPORTANT: initialise magento mysql database connection
 MageRecord::Connection.new 'localhost', 'db_name', 'username', 'password'
