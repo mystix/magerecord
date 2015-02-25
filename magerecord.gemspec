@@ -9,8 +9,9 @@ Gem::Specification.new do |s|
   s.version = "0.1.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
   s.authors = ["Marc"]
-  s.date = "2015-01-23"
+  s.date = "2015-02-25"
   s.description = "A simple ActiveRecord wrapper for various Magento models"
   s.email = "xerokill@gmail.com"
   s.extra_rdoc_files = [
@@ -45,8 +46,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/mystix/magerecord"
   s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = "2.1.9"
+  s.rubygems_version = "2.4.5"
   s.summary = "Simple ActiveRecord wrapper for Magento"
 
   if s.respond_to? :specification_version then
