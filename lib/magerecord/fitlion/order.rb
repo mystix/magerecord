@@ -3,7 +3,7 @@ module MageRecord
   class Order < ActiveRecord::Base
     # ignore canceled orders
     default_scope { where state: [:processing, :complete] }
-    scope :delivery, -> { where shipping_method: [:flatrate_flatrate :addon_addon] }
+    scope :delivery, -> { where shipping_method: [:flatrate_flatrate, :addon_addon] }
     scope :collection, -> { where "#{self.class.table_name}.shipping_method LIKE 'selfcollect%'" }
 
     def for_delivery?
