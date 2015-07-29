@@ -1,18 +1,17 @@
 module MageRecord
-  # order items can be parents / children of other order items
+  # invoice items can be parents / children of other invoice items
   # (only within the same order)
-  class OrderItem < ActiveRecord::Base
-    self.table_name = :sales_flat_order_item
+  class InvoiceItem < ActiveRecord::Base
+    self.table_name = :sales_flat_invoice_item
+    self.primary_key = :entity_id
 
-    belongs_to :order
-    belongs_to :parent, class_name: :OrderItem, foreign_key: :parent_item_id
+    belongs_to :order_item, class_name: :OrderItem
+    belongs_to :parent, class_name: :InvoiceItem, foreign_key: :parent_item_id
     belongs_to :product
 
     # note: add an index on the column "parent_item_id" to
     # *dramatically* speed up loading of child order items from the parent order item
-    has_many :children, class_name: :OrderItem, foreign_key: :parent_item_id
-
-    has_one :invoice_item, class_name: :InvoiceItem
+    has_many :children, class_name: :InvoiceItem, foreign_key: :parent_item_id
 
 
     # call associated product's method
