@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'activerecord', '~> 4.0'
-gem 'mysql2', '~> 0.3', :platforms => :ruby
+gem 'mysql2', '~> 0.3.18', :platforms => :ruby
 
 
 # Add dependencies to develop your gem here.
