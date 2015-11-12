@@ -31,8 +31,8 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.6)
       oauth2
-    hashie (3.4.2)
-    highline (1.7.7)
+    hashie (3.4.3)
+    highline (1.7.8)
     i18n (0.7.0)
     jeweler (2.0.1)
       builder
@@ -45,9 +45,9 @@ GEM
       rdoc
     json (1.8.3)
     json (1.8.3-java)
-    jwt (1.5.1)
+    jwt (1.5.2)
     mini_portile (0.6.2)
-    minitest (5.8.1)
+    minitest (5.8.2)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
