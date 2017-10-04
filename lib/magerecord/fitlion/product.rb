@@ -5,31 +5,37 @@ module MageRecord
       "#{measurement} #{unit}"
     end
 
+    def attributes
+      if @attribs.nil?
+        @attribs = {}
 
-    def full_name
+        # only simple/virtual products will have custom attributes
+        if %w{simple virtual}.include?(type_id)
+          # get all custom product attributes specific to attribute set (except "brand")
+          attribs = set.downcase.gsub(/.*\((.+)\)/, "\\1").gsub(/ only/, '').split(' + ') - ['brand']
+
+          attribs.map{ |a| a.split(' ').join('_') }.each do |attrib|
+            @attribs[attrib] = send(attrib)
+          end
+        end
+      end
+
+      @attribs
+    end
+
+    def full_name(with_brand = true)
       if @fname.nil?
         @fname = "#{name} (#{uom})"
 
         # note: most bundles are not associated with any brand
-        if brand
-          @fname = "(#{brand}) #{@fname}"
-        end
+        @fname = "(#{brand}) #{@fname}" if with_brand and brand
 
-        # only simple/virtual products will have custom attributes
-        if %w{simple virtual}.include?(type_id)
-          # get all custom product attributes specific to attribute set
-          attribs = set.downcase.gsub(/.*\((.+)\)/, "\\1").gsub(/ only/, '').split(' + ') - ['brand']
-
-          attribs.each do |attr|
-            @fname += " (#{send(attr.split(' ').join('_'))})"
-          end
-        end
+        @fname = "#{@fname}#{attributes.values.map{ |a| " (#{a})" }.join}"
       end
 
       # return cached full name
       @fname
     end
-
 
     def is_supplement?
       set.downcase.include? 'supplement'
