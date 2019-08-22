@@ -9,6 +9,6 @@ group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", ">= 3.0"
   gem "bundler", "~> 1.13"
-  gem "jeweler", ">= 2.0.1"
+  gem "juwelier", ">= 2.0.1"
   gem "simplecov", ">= 0"
 end
