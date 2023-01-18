@@ -1,12 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.3.1)
-      activesupport (= 7.0.3.1)
-    activerecord (7.0.3.1)
-      activemodel (= 7.0.3.1)
-      activesupport (= 7.0.3.1)
-    activesupport (7.0.3.1)
+    activemodel (7.0.4.1)
+      activesupport (= 7.0.4.1)
+    activerecord (7.0.4.1)
+      activemodel (= 7.0.4.1)
+      activesupport (= 7.0.4.1)
+    activesupport (7.0.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -50,7 +50,7 @@ GEM
       oauth2 (~> 1.0)
     hashie (3.6.0)
     highline (2.0.3)
-    i18n (1.11.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     juwelier (2.4.9)
       builder
@@ -68,7 +68,7 @@ GEM
     kamelcase (0.0.2)
       semver2 (~> 3)
     mini_portile2 (2.8.0)
-    minitest (5.16.2)
+    minitest (5.17.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.2.3)
@@ -95,7 +95,7 @@ GEM
     semver2 (3.4.2)
     stringio (3.0.2)
     thread_safe (0.3.6)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
 
 PLATFORMS
